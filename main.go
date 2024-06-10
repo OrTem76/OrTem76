@@ -6,10 +6,6 @@ import (
 	"strings"
 )
 
-func main() {
-	fmt.Println("Что-то печатаем")
-}
-
 var romeDigits = map[string]int{
 	"I":    1,
 	"II":   2,
@@ -102,7 +98,7 @@ func main() {
 	result := calculate(num1, num2, operator)
 	if num1 == romeDigits[input1] && num2 == romeDigits[input2] {
 		fmt.Println(toRoman(result))
-	} else if input1 == romeDigits[input1] || input2 == romeDigits[input2] {
+	} else if romeDigits[input1] > 0 || romeDigits[input2] > 0 {
 		panic("Нельзя использовать одновременно арабские и римские числа")
 	} else {
 		fmt.Println(result)

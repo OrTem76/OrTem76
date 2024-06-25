@@ -86,23 +86,23 @@ func main() {
 
 	if num, err := strconv.Atoi(input1); err == nil {
 		num1 = num
-	} else {
-		panic("Недопустимое число")
 	}
 
 	if num, err := strconv.Atoi(input2); err == nil {
 		num2 = num
-	} else {
-		panic("Недопустимое число")
+
 	}
 
-	if (num1 < 1 || num1 > 10) || (num2 < 1 || num2 > 10) {
+	if (num1 < 1 && num1 > 10) || (num2 < 1 && num2 > 10) {
 		panic("Числа должны быть от 1 до 10")
 	}
 
 	result := calculate(num1, num2, operator)
-	if num1 == romeDigits[input1] && num2 == romeDigits[input2] {
-		fmt.Println(toRoman(result))
+	if romeDigits[input1] > 0 && romeDigits[input2] > 0 {
+		num1 = romeDigits[input1]
+		num2 = romeDigits[input2]
+		arabicResult := calculate(num1, num2, operator)
+		fmt.Println(toRoman(arabicResult))
 	} else if romeDigits[input1] > 0 || romeDigits[input2] > 0 {
 		panic("Нельзя использовать одновременно арабские и римские числа")
 	} else {

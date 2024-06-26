@@ -53,6 +53,7 @@ func calculate(num1, num2 int, operator string) int {
 	switch operator {
 	case "+":
 		return num1 + num2
+
 	case "-":
 		return num1 - num2
 	case "*":
@@ -60,6 +61,7 @@ func calculate(num1, num2 int, operator string) int {
 	case "/":
 		if num2 == 0 {
 			panic("Деление на ноль")
+
 		}
 		return num1 / num2
 	default:
@@ -83,7 +85,12 @@ func main() {
 	//fmt.Scanln(&operator)
 	//fmt.Println("Данные для рассчёта: ")
 	//fmt.Scanln(&input1), (&operator), (&input2)
-
+	if num1 == 0 {
+		panic("Ноль не принимается на ввод")
+	}
+	if num2 == 0 {
+		panic("Ноль не принимается на ввод")
+	}
 	if num, err := strconv.Atoi(input1); err == nil {
 		num1 = num
 	}
